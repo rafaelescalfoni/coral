@@ -1,6 +1,6 @@
 # Coral Framework
 
-##Stack:
+## Stack:
 
 - Django framework
 - Python 3.7
