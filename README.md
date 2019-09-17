@@ -30,3 +30,7 @@ Para dar start no django server utilize o comando:
 `python3.7 manage.py runserver`
 
 Enjoy! ;)
+
+## Diagrama do banco de dados
+
+![Lalala](coral_models.png)
