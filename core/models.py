@@ -223,14 +223,14 @@ class Friend(models.Model):
         db_table = 'friend'
         unique_together = (('person', 'friend'),)
 
-# class User(models.Model):
-#     username = models.CharField(unique=True, max_length=45)
-#     password = models.CharField(max_length=50)
-#     email = models.CharField(max_length=500)
-#     profile = models.CharField(max_length=45)
-#     avatar = models.CharField(max_length=256, blank=True, null=True)
-#     person = models.ForeignKey(Person, models.DO_NOTHING)
+class User(models.Model):
+    username = models.CharField(unique=True, max_length=45)
+    password = models.CharField(max_length=50)
+    email = models.CharField(max_length=500)
+    profile = models.CharField(max_length=45)
+    avatar = models.CharField(max_length=256, blank=True, null=True)
+    person = models.ForeignKey(Person, models.DO_NOTHING)
 
-#     class Meta:
-        # db_table = 'user'
-#         unique_together = (('id', 'person'),)
+    class Meta:
+        db_table = 'user'
+        unique_together = (('id', 'person'),)
