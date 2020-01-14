@@ -6,7 +6,9 @@
 	{% load static %}
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico'" %}/>
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+
+
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/cs' %}s/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.' %}0/icon-font.min.css">
@@ -24,13 +26,18 @@
 			<div class="wrap-login100 p-t-100 p-b-30">
 				<form class="login100-form validate-form" action="/login" method="post">
 					<div class="login100-form-avatar">
-						<img src="{% static 'images/avatar-01.jpg' %}" alt="AVATAR">
+						<img src="{% static 'images/logo.png' %}" alt="AVATAR">
 					</div>
 
 					<span class="login100-form-title p-t-20 p-b-45">
-						Coral
+						Bem-vindo(a)!
 					</span>
-
+						<br>
+					{% if general_error %}
+						<span style="color:white; text-align: center; width: 100%;">
+							{{ general_error }}!
+						</span>
+					{% endif %}	
 					<div class="wrap-input100 validate-input m-b-10" data-validate = "Informe o nome do usuário">
 						<input class="input100" type="text" name="username" placeholder="Usuário">
 						<span class="focus-input100"></span>
@@ -65,7 +72,7 @@
 							</a>
 						</div> -->
 					</div>
-					{{ general_error }}
+					
 					{% csrf_token %}
 				</form>
 			</div>
