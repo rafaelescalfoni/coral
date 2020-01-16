@@ -21,16 +21,28 @@ Navegue até o diretório do projeto via linha de comando:
 
 `cd /diretório até o projeto no seu pc/coral/`
 
+Caso não tenha o Python3, instale-o utilizando o seguinte comando (mac):
+
+`brew install python3`
+
 Para rodar as migrações que constroem o banco de dados, execute o comando:
 
 `python3.7 manage.py migrate`
+
+ou
+
+`python manage.py migrate`
 
 Para dar start no django server utilize o comando:
 
 `python3.7 manage.py runserver`
 
+ou 
+
+`python manage.py runserver`
+
 Enjoy! ;)
 
 ## Diagrama do banco de dados
 
-![Lalala](coral_models.png)
+![Diagrama](coral_models.png)
