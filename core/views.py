@@ -5,6 +5,10 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import *
 
+
+def index(request):
+    return render(request, "index.html", {})
+
 def login(request):
     general_error = ""
 

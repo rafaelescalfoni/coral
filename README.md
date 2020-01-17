@@ -15,23 +15,32 @@ Por padrão o django está com o sqlite configurado como banco de dados. Até co
 
 ## Para executar o projeto, siga os seguintes passos:
 
+Caso não tenha o Python3, instale-o utilizando o seguinte comando (mac):
+
+`brew install python3`
+
+Instale o Django em sua máquina (caso não tenha) seguindo a documentação, disponível aqui: 
+
+https://docs.djangoproject.com/en/3.0/topics/install/
+
+Clone o projeto utilizando o comando:
 `git clone git@github.com:rafaelescalfoni/coral.git`
 
 Navegue até o diretório do projeto via linha de comando:
 
 `cd /diretório até o projeto no seu pc/coral/`
 
-Caso não tenha o Python3, instale-o utilizando o seguinte comando (mac):
-
-`brew install python3`
-
-Para rodar as migrações que constroem o banco de dados, execute o comando:
+Para rodar as migrações que constroem o banco de dados, execute no diretório do projeto o comando:
 
 `python3.7 manage.py migrate`
 
 ou
 
 `python manage.py migrate`
+
+Crie um usuário para acessar o sistema (vale ressaltar que o login jo Django é realizado com nome de usuário e não email)
+
+`python3.7 manage.py createsuperuser`
 
 Para dar start no django server utilize o comando:
 
