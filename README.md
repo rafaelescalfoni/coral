@@ -32,13 +32,13 @@ Navegue até o diretório do projeto via linha de comando:
 
 <!-- Para instalar bibliotecas necessárias (django_seed e django_extensions) use:
 
-`pip install django-seed`
+`pip3 install django-seed`
 
-`pip install django-extensions` -->
+`pip3 install django-extensions` -->
 
 Execute o comando para instalar as dependências necessárias:
 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
 Para rodar as migrações que constroem o banco de dados, execute no diretório do projeto o comando:
 
