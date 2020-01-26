@@ -1,5 +1,7 @@
 # Coral Framework
 
+![Logo Coral](https://github.com/rafaelescalfoni/coral/blob/master/core/static/images/logo.png)
+
 ## Stack:
 
 - Django framework
