@@ -30,11 +30,15 @@ Navegue até o diretório do projeto via linha de comando:
 
 `cd /diretório até o projeto no seu pc/coral/`
 
-Para instalar bibliotecas necessárias (django_seed e django_extensions) use:
+<!-- Para instalar bibliotecas necessárias (django_seed e django_extensions) use:
 
 `pip install django-seed`
 
-`pip install django-extensions`
+`pip install django-extensions` -->
+
+Execute o comando para instalar as dependências necessárias:
+
+`pip install -r requirements.txt`
 
 Para rodar as migrações que constroem o banco de dados, execute no diretório do projeto o comando:
 
