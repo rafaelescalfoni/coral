@@ -26,7 +26,7 @@ Instale o Django em sua máquina (caso não tenha) seguindo a documentação, di
 https://docs.djangoproject.com/en/3.0/topics/install/
 
 Clone o projeto utilizando o comando:
-`git clone git@github.com:rafaelescalfoni/coral.git`
+`git clone git@github.com/rafaelescalfoni/coral.git`
 
 Navegue até o diretório do projeto via linha de comando:
 
