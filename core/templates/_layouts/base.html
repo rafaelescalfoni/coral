@@ -22,6 +22,16 @@
 	<link href="{% static '/template/css/style.min.css' %}" rel="stylesheet" />
 	<link href="{% static '/template/css/style-responsive.min.css' %}" rel="stylesheet" />
 	<link href="{% static '/template/css/theme/blue.css' %}" rel="stylesheet" id="theme" />
+	<style type="text/css">
+		.menu-title-coral {
+			color: #120A8F;
+			font-weight: bold;
+		}
+
+		.logo-sidebar {
+			margin-top: 18px;
+		}
+	</style>
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
 
@@ -39,142 +49,74 @@
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
 	
-		<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
-		<!-- begin #header -->
-		<div id="header" class="header navbar navbar-default navbar-fixed-top">
-			<!-- begin container-fluid -->
-			<div class="container-fluid">
-				<!-- begin mobile sidebar expand / collapse button -->
-				<div class="navbar-header">
-					<!-- <img src="{% static 'images/logo.png' %}" alt=""> -->
-					<a href="/home">
-						<img src="{% static 'images/logo-horizontal.png' %}" class="logo-sidebar">
-					</a>
-					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<!-- end mobile sidebar expand / collapse button -->
-				
-				<!-- begin header navigation right -->
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown navbar-user">
-						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-							<img src="{% static '/template/img/profile.png' %}" alt="" /> 
-							<span class="hidden-xs">{{ current_user }}</span> <b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu animated fadeInLeft">
-							<li class="arrow"></li>
-							<li><a href="javascript:alert('Em desenvolvimento');">Editar perfil</a></li>
-							<li><a href="javascript:alert('Em desenvolvimento');">N faz nada</a></li>
-							<li><a href="javascript:alert('Em desenvolvimento');">N faz nada 2</a></li>
-							<li class="divider"></li>
-							<li><a href="/logout">Sair</a></li>
-						</ul>
-					</li>
-				</ul>
-				<!-- end header navigation right -->
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+	<!-- begin #header -->
+	<div id="header" class="header navbar navbar-default navbar-fixed-top" style="min-height: 80px!important;">
+		<!-- begin container-fluid -->
+		<div class="container-fluid">
+			<!-- begin mobile sidebar expand / collapse button -->
+			<div class="navbar-header">
+				<a href="/home">
+					<img src="{% static 'images/logo-horizontal.png' %}" class="logo-sidebar">
+				</a>
+				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 			</div>
-			<!-- end container-fluid -->
-		</div>
-		<!-- end #header -->
-		
-	<!-- begin #sidebar -->
-	<div id="sidebar" class="sidebar">
-		<!-- begin sidebar scrollbar -->
-		<div data-scrollbar="true" data-height="100%">
-			<!-- begin sidebar user -->
-			<ul class="nav">
-				<li class="nav-profile">
-					<div class="image">
-						<a href="javascript:;"><img src="{% static '/images/logo-solo.png' %}" alt="" /></a>
-					</div>
-					<div class="info">
-						{{ current_user }}
-						<small>Usuário do Coral</small>
-					</div>
-				</li>
-			</ul>
-			<!-- end sidebar user -->
-			<!-- begin sidebar nav -->
-			<ul class="nav">
-				<li class="nav-header">Navegação</li>
-				<li class="has-sub active">
-					<a href="javascript:;">
-					    <b class="caret pull-right"></b>
-					    <i class="fa fa-laptop"></i>
-					    <span>Dashboard</span>
-				    </a>
-					<ul class="sub-menu">
-					    <li class="active"><a href="/home">Dashboard v1</a></li>
-					</ul>
-				</li>
-				<li class="has-sub">
-					<a href="javascript:;">
-					    <b class="caret pull-right"></b>
-					    <i class="fa fa-search"></i>
-						<span>Grafos <span class="label label-theme m-l-5">NOVO</span></span>
+			<!-- end mobile sidebar expand / collapse button -->
+			
+			<!-- begin header navigation right -->
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown navbar-user">
+					<a href="/home" class="dropdown-toggle" data-toggle="dropdown">
+						<div>
+							<img src="{% static '/template/img/ecossistema.png' %}" alt="" style="display: block;margin-left: auto !important;margin-right: auto !important; float: none!important;"/> 
+							
+							<span class="hidden-xs menu-title-coral">Ecossistema</span>
+						</div>
 					</a>
-					<ul class="sub-menu">
-					    <li><a href="javascript:alert('Em desenvolvimento!');">Ecossistema de Startups</a></li>
-					    <li><a href="javascript:alert('Em desenvolvimento!');">Especialistas</a></li>
-					    <li><a href="javascript:alert('Em desenvolvimento!');">Reputação</a></li>
-					</ul>
 				</li>
 
-				<li class="has-sub">
-					<a href="javascript:;">
-					    <b class="caret pull-right"></b>
-					    <i class="fa fa-th"></i>
-					    <span>Tables</span>
+				<li class="dropdown navbar-user">
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+						<div>
+							<img src="{% static '/template/img/especialista.png' %}" alt="" style="display: block;margin-left: auto !important;margin-right: auto !important; float: none!important;"/> 
+							
+							<span class="hidden-xs menu-title-coral">Especialista</span>
+						</div>
 					</a>
-					<ul class="sub-menu">
-						<li><a href="table_basic.html">Basic Tables</a></li>
-						<li class="has-sub">
-						    <a href="javascript:;"><b class="caret pull-right"></b> Managed Tables</a>
-						    <ul class="sub-menu">
-						        <li><a href="table_manage.html">Default</a></li>
-						        <li><a href="table_manage_autofill.html">Autofill</a></li>
-						        <li><a href="table_manage_buttons.html">Buttons</a></li>
-						        <li><a href="table_manage_colreorder.html">ColReorder</a></li>
-						        <li><a href="table_manage_fixed_columns.html">Fixed Column</a></li>
-						        <li><a href="table_manage_fixed_header.html">Fixed Header</a></li>
-						        <li><a href="table_manage_keytable.html">KeyTable</a></li>
-						        <li><a href="table_manage_responsive.html">Responsive</a></li>
-						        <li><a href="table_manage_rowreorder.html">RowReorder</a></li>
-						        <li><a href="table_manage_scroller.html">Scroller</a></li>
-						        <li><a href="table_manage_select.html">Select</a></li>
-						        <li><a href="table_manage_combine.html">Extension Combination</a></li>
-						    </ul>
-						</li>
-					</ul>
-				</li>
-				<li class="has-sub">
-					<a href="javascript:;">
-					    <b class="caret pull-right"></b>
-						<i class="fa fa-star"></i> 
-						<span>Front End</span>
-					</a>
-					<ul class="sub-menu">
-					    <li><a href="../../frontend/one-page-parallax/template_content_html/index.html" target="_blank">One Page Parallax</a></li>
-					    <li><a href="../../frontend/blog/template_content_html/index.html" target="_blank">Blog</a></li>
-					    <li><a href="../../frontend/forum/template_content_html/index.html" target="_blank">Forum</a></li>
-					    <li><a href="../../frontend/e-commerce/template_content_html/index.html" target="_blank">E-Commerce</a></li>
-					</ul>
 				</li>
 
-		        <!-- begin sidebar minify button -->
-				<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
-		        <!-- end sidebar minify button -->
+				<li class="dropdown navbar-user">
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+						<div>
+							<img src="{% static '/template/img/recomendacao.png' %}" alt="" style="display: block;margin-left: auto !important;margin-right: auto !important; float: none!important;"/> 
+							
+							<span class="hidden-xs menu-title-coral">Recomendação</span>
+						</div>
+					</a>
+				</li>
+
+				<li class="dropdown navbar-user">
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+						<img src="{% static '/template/img/profile.png' %}" style="display: block;margin-left: auto !important;margin-right: auto !important; float: none!important;" /> 
+						<span class="hidden-xs menu-title-coral">{{ current_user }}</span> <b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu animated fadeInLeft">
+						<li class="arrow"></li>
+						<li><a href="javascript:alert('Em desenvolvimento');">Editar perfil</a></li>
+						<li class="divider"></li>
+						<li><a href="/logout">Sair</a></li>
+					</ul>
+				</li>
 			</ul>
-			<!-- end sidebar nav -->
+			<!-- end header navigation right -->
 		</div>
-		<!-- end sidebar scrollbar -->
+		<!-- end container-fluid -->
 	</div>
-	<div class="sidebar-bg"></div>
-	<!-- end #sidebar -->
+
 		
 
 		<!-- ================== CONTENT ================== -->

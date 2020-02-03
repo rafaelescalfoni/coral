@@ -39,3 +39,18 @@ def logout(request):
 def home(request):
     current_user = request.user
     return render(request, "home.html", {"current_user": current_user})
+
+@login_required
+def project(request, id):
+    current_user = request.user
+    return render(request, "project.html", {"current_user": current_user, "id": id})
+
+@login_required
+def graph_specialist(request, proj_id):
+    current_user = request.user
+    return render(request, "graph_specialist.html", {"current_user": current_user})
+
+@login_required
+def graph_reputation(request, proj_id):
+    current_user = request.user
+    return render(request, "graph_reputation.html", {"current_user": current_user})

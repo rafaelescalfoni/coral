@@ -1,0 +1,93 @@
+{% extends "_layouts/base.html" %}
+{% load static %}
+
+{% block title %}Projeto{% endblock %}
+
+{% block styles %} 
+	<link href="{% static '/template/plugins/DataTables/media/css/dataTables.bootstrap.min.css' %}" rel="stylesheet" />
+
+	<link href="{% static '/template/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+
+{% block content %}
+<div id="content" class="content">
+    <ol class="breadcrumb pull-right">
+        <a href="/graph_specialist/3" class="btn btn-primary btn-lg m-r-5">Especialistas</a>
+        <a href="/graph_reputation/3" class="btn btn-primary btn-lg m-r-5">Reputação</a>
+    </ol>
+
+	<h1 class="page-header">Projeto ecossistemas do Rio de Janeiro
+	<br>
+	<small>Detalhamento do projeto</small></h1>
+	
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-inverse" data-sortable-id="form-validation-1">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                    </div>
+                    <h4 class="panel-title">Detalhamento</h4>
+                </div>
+                <div class="panel-body panel-form">
+                    <form class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="fullname">Nome do projeto:</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" type="text" id="fullname" name="fullname" placeholder="Required" value="Projeto ecossistemas do Rio de Janeiro"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="description">Descrição:</label>
+                            <div class="col-md-6 col-sm-6">
+                                <textarea class="form-control" rows="4" cols="50" name="description" data-parsley-type="email" placeholder="Descrição"/>Estudo de caso empregado no sistema da encubadora IETEC</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="website">Criação do projeto:</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" type="text" id="fullname" name="fullname" placeholder="Required" value="20/11/2017"/>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="message">Protocolo:</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" type="text" id="data-phone" value="?????" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4"></label>
+                            <div class="col-md-6 col-sm-6">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+	<script src="{% static '/template/plugins/DataTables/media/js/jquery.dataTables.js' %}"></script>
+	<script src="{% static '/template/plugins/DataTables/media/js/dataTables.bootstrap.min.js' %}"></script>
+	<script src="{% static '/template/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js' %}"></script>
+
+	<script src="{% static '/template/js/table-manage-default.demo.min.js' %}"></script>
+	<script src="{% static '/template/js/apps.min.js' %}"></script>
+	
+	<script>
+		$(document).ready(function() {
+			App.init();
+			TableManageDefault.init();
+		});
+	</script>
+{% endblock %}
+	

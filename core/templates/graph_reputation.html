@@ -1,0 +1,210 @@
+{% extends "_layouts/base.html" %}
+{% load static %}
+
+{% block title %}Reputação{% endblock %}
+
+{% block styles %} 
+<!-- Estilos -->
+
+{% endblock %}
+
+
+{% block content %}
+<div id="content" class="content">
+
+    <ol class="breadcrumb pull-right">
+        <a href="#modal-dialog" data-toggle="modal" class="btn btn-primary btn-lg m-r-5">Filtros</a>
+    </ol>
+
+    <h1 class="page-header">Reputação
+    <br>
+    <small>Detalhamento das reputações no ecossistema</small></h1>
+    
+    <!-- Inserir Grafo aqui -->
+</div>
+
+<div class="modal fade" id="modal-dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Filtros</h4>
+            </div>
+            <div class="modal-body">
+
+
+            <div class="form-group">
+                <label for="distance">Defina a distância máxima (em quilômetros)<!--Define a maximum distance (in Kilometers)--></label>
+                <input type="number" class="form-control" name="distance" id="distance" placeholder="">
+            </div>
+            <div class="form-group">
+                <h5>Escolha por tipo de organização<!--Choose by type of organization--></h5>
+                <div class="form-check">
+                    <input class="form-check-input" name="status[]" type="checkbox" value="Pré-Incubadas" id="pre">
+                    <label class="form-check-label" for="pre">Pré-incubadas</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="status[]" type="checkbox" value="Incubadas" id="incubadas">
+                    <label class="form-check-label" for="incubadas">Incubadas</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="status[]" type="checkbox" value="Graduadas" id="graduadas">
+                    <label class="form-check-label" for="graduadas">Graduadas</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="status[]" type="checkbox" value="Associadas" id="empresa">
+                    <label class="form-check-label" for="empresa">Empresas Associadas</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="status[]" type="checkbox" value="Ecobuilder" id="ecobuilders">
+                    <label class="form-check-label" for="ecobuilders">Incubadoras/Parques Tecnológicos</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <h5>Escolha por Incubadora/Parque Tecnológico<!--Choose by ecobuilder--></h5>
+                <div class="row">
+                    
+                    <div class="col-md-6">
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_2" value="2">
+                            <label class="form-check-label" for="ecobuider_2">COPPE/UFRJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_4" value="4">
+                            <label class="form-check-label" for="ecobuider_4">IETEC/CEFET</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_6" value="6">
+                            <label class="form-check-label" for="ecobuider_6">INESDI/UERJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_8" value="8">
+                            <label class="form-check-label" for="ecobuider_8">Instituto Gênesis/PUC-Rio</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_10" value="10">
+                            <label class="form-check-label" for="ecobuider_10">ITCP/UFRJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_12" value="12">
+                            <label class="form-check-label" for="ecobuider_12">ITESS/CEFET</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_14" value="14">
+                            <label class="form-check-label" for="ecobuider_14">Phoenix/UERJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_16" value="16">
+                            <label class="form-check-label" for="ecobuider_16">Sulfluminense/UERJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_18" value="18">
+                            <label class="form-check-label" for="ecobuider_18">UFF</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_20" value="20">
+                            <label class="form-check-label" for="ecobuider_20">Parque Tecnológico da Região Serrana</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_22" value="22">
+                            <label class="form-check-label" for="ecobuider_22">Parque Tecnológico da UFRJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_24" value="24">
+                            <label class="form-check-label" for="ecobuider_24">Parque Tecnológico Sul Fluminense , RIOSULTEC</label>
+                        </div>     
+                    </div>
+                    <div class="col-md-6">
+                    
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_1" value="1">
+                            <label class="form-check-label" for="ecobuider_1">BIO RIO</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_3" value="3">
+                            <label class="form-check-label" for="ecobuider_3">IEBTEC/IPRJ/UERJ</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_5" value="5">
+                            <label class="form-check-label" for="ecobuider_5">INEAGRO/UFRRJ</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_7" value="7">
+                            <label class="form-check-label" for="ecobuider_7">INMETRO /MDIC</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_9" value="9">
+                            <label class="form-check-label" for="ecobuider_9">INT /MCTIC</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_11" value="11">
+                            <label class="form-check-label" for="ecobuider_11">ITECS/UERJ</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_13" value="13">
+                            <label class="form-check-label" for="ecobuider_13">LNCC /MCTI</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_15" value="15">
+                            <label class="form-check-label" for="ecobuider_15">Rio Criativo /SEC</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_17" value="17">
+                            <label class="form-check-label" for="ecobuider_17">TEC CAMPOS</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_19" value="19">
+                            <label class="form-check-label" for="ecobuider_19">Centro de uso compartilhado para P,DeI voltad</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_21" value="21">
+                            <label class="form-check-label" for="ecobuider_21">Parque Tecnológico da UFF: Península da Inova</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_23" value="23">
+                            <label class="form-check-label" for="ecobuider_23">Parque Tecnológico Multissetorial (PqTec-RioS</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_25" value="25">
+                            <label class="form-check-label" for="ecobuider_25">Polo BIORIO , Polo de Biotecnologia do Rio de</label>
+                        </div>     
+                    </div>
+                </div>
+            </div>
+
+  
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Cancelar</a>
+                <a href="javascript:;" class="btn btn-sm btn-primary">Aplicar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{% static '/template/js/apps.min.js' %}"></script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+
+    </script>
+{% endblock %}
+    
