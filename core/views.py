@@ -54,3 +54,8 @@ def graph_specialist(request, proj_id):
 def graph_reputation(request, proj_id):
     current_user = request.user
     return render(request, "graph_reputation.html", {"current_user": current_user})
+
+@login_required
+def graph_reputation_filter(request, proj_id):
+    current_user = request.user
+    return render(request, "graph_reputation_filter.html", {"current_user": current_user})

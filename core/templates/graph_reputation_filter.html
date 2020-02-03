@@ -1,0 +1,267 @@
+{% extends "_layouts/base.html" %}
+{% load static %}
+
+{% block title %}Reputação{% endblock %}
+
+{% block styles %} 
+<!-- Estilos -->
+    <link href="{% static 'old_coral/style.css' %}" rel='stylesheet' />
+
+{% endblock %}
+
+
+{% block content %}
+<div id="content" class="content">
+
+    <ol class="breadcrumb pull-right">
+        <a href="#modal-dialog" data-toggle="modal" class="btn btn-primary btn-lg m-r-5">Filtros</a>
+        
+        <div class="btn-group m-r-5 btn-lg">
+            <a href="javascript:;" class="btn btn-primary btn-lg" data-toggle="dropdown">Layout</a>
+            <a href="javascript:;" data-toggle="dropdown" class="btn btn-primary btn-lg dropdown-toggle">
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu pull-right">
+                <li><a href="javascript:;" id="layoutArbor">Padrão</a></li>
+                <li><a href="javascript:;" id="layoutRandom">Aleatório</a></li>
+            </ul>
+        </div>
+    </ol>
+
+    <h1 class="page-header">Reputação
+    <br>
+    <small>Detalhamento das reputações no ecossistema</small></h1>
+    
+    <!-- Grafo de especialistas -->
+    <div id="cy"></div>       
+</div>
+
+<div class="modal fade" id="modal-dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Filtros</h4>
+            </div>
+            <div class="modal-body">
+
+
+            <div class="form-group">
+                <label for="distance">Defina a distância máxima (em quilômetros)<!--Define a maximum distance (in Kilometers)--></label>
+                <input type="number" class="form-control" name="distance" id="distance" placeholder="">
+            </div>
+            <div class="form-group">
+                <h5>Escolha por tipo de organização<!--Choose by type of organization--></h5>
+                <div class="form-check">
+                    <input class="form-check-input" name="status[]" type="checkbox" value="Pré-Incubadas" id="pre">
+                    <label class="form-check-label" for="pre">Pré-incubadas</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="status[]" type="checkbox" value="Incubadas" id="incubadas">
+                    <label class="form-check-label" for="incubadas">Incubadas</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="status[]" type="checkbox" value="Graduadas" id="graduadas">
+                    <label class="form-check-label" for="graduadas">Graduadas</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="status[]" type="checkbox" value="Associadas" id="empresa">
+                    <label class="form-check-label" for="empresa">Empresas Associadas</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="status[]" type="checkbox" value="Ecobuilder" id="ecobuilders">
+                    <label class="form-check-label" for="ecobuilders">Incubadoras/Parques Tecnológicos</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <h5>Escolha por Incubadora/Parque Tecnológico<!--Choose by ecobuilder--></h5>
+                <div class="row">
+                    
+                    <div class="col-md-6">
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_2" value="2">
+                            <label class="form-check-label" for="ecobuider_2">COPPE/UFRJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_4" value="4">
+                            <label class="form-check-label" for="ecobuider_4">IETEC/CEFET</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_6" value="6">
+                            <label class="form-check-label" for="ecobuider_6">INESDI/UERJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_8" value="8">
+                            <label class="form-check-label" for="ecobuider_8">Instituto Gênesis/PUC-Rio</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_10" value="10">
+                            <label class="form-check-label" for="ecobuider_10">ITCP/UFRJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_12" value="12">
+                            <label class="form-check-label" for="ecobuider_12">ITESS/CEFET</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_14" value="14">
+                            <label class="form-check-label" for="ecobuider_14">Phoenix/UERJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_16" value="16">
+                            <label class="form-check-label" for="ecobuider_16">Sulfluminense/UERJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_18" value="18">
+                            <label class="form-check-label" for="ecobuider_18">UFF</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_20" value="20">
+                            <label class="form-check-label" for="ecobuider_20">Parque Tecnológico da Região Serrana</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_22" value="22">
+                            <label class="form-check-label" for="ecobuider_22">Parque Tecnológico da UFRJ</label>
+                        </div>     
+                
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_24" value="24">
+                            <label class="form-check-label" for="ecobuider_24">Parque Tecnológico Sul Fluminense , RIOSULTEC</label>
+                        </div>     
+                    </div>
+                    <div class="col-md-6">
+                    
+                        <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_1" value="1">
+                            <label class="form-check-label" for="ecobuider_1">BIO RIO</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_3" value="3">
+                            <label class="form-check-label" for="ecobuider_3">IEBTEC/IPRJ/UERJ</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_5" value="5">
+                            <label class="form-check-label" for="ecobuider_5">INEAGRO/UFRRJ</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_7" value="7">
+                            <label class="form-check-label" for="ecobuider_7">INMETRO /MDIC</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_9" value="9">
+                            <label class="form-check-label" for="ecobuider_9">INT /MCTIC</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_11" value="11">
+                            <label class="form-check-label" for="ecobuider_11">ITECS/UERJ</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_13" value="13">
+                            <label class="form-check-label" for="ecobuider_13">LNCC /MCTI</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_15" value="15">
+                            <label class="form-check-label" for="ecobuider_15">Rio Criativo /SEC</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_17" value="17">
+                            <label class="form-check-label" for="ecobuider_17">TEC CAMPOS</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_19" value="19">
+                            <label class="form-check-label" for="ecobuider_19">Centro de uso compartilhado para P,DeI voltad</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_21" value="21">
+                            <label class="form-check-label" for="ecobuider_21">Parque Tecnológico da UFF: Península da Inova</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_23" value="23">
+                            <label class="form-check-label" for="ecobuider_23">Parque Tecnológico Multissetorial (PqTec-RioS</label>
+                        </div>     
+                                                <div class="form-check">
+                            <input class="form-check-input" name="ecobuilder[]" type="checkbox" id="ecobuider_25" value="25">
+                            <label class="form-check-label" for="ecobuider_25">Polo BIORIO , Polo de Biotecnologia do Rio de</label>
+                        </div>     
+                    </div>
+                </div>
+            </div>
+
+  
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Cancelar</a>
+                <a href="javascript:;" class="btn btn-sm btn-primary">Aplicar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{% static '/template/js/apps.min.js' %}"></script>
+
+    <!-- <script src="http://157.230.5.17/coral/view/components/bootstrap-tagsinput/bootstrap-tagsinput.js"></script> -->
+    <!-- <script src="http://157.230.5.17/coral/view/components/bootstrap-tagsinput/bootstrap-tagsinput-angular.js"></script> -->
+
+    <!-- <link rel="stylesheet" href="http://157.230.5.17/coral/view/components/jquery.tablesorter.pager.css"/> -->
+    <!-- <link rel="stylesheet" href="http://157.230.5.17/coral/view/components/jq.css"/> -->
+    <!-- <link rel="stylesheet" href="http://157.230.5.17/coral/view/components/jquery.tablesorter.pager.css"/> -->
+    <!-- <link rel="stylesheet" href="http://157.230.5.17/coral/view/css/theme.bootstrap.css"/> -->
+
+    <script>
+
+
+    var org_id = 4;
+    var nodeList = [{"id":"310","name":"Promec","type":"empresas","size":0.033333333333333,"total_mention":"1","number_skills":"1"},{"id":"4","name":"IETEC\/CEFET","type":"incubadoras","size":0.033333333333333,"total_mention":1,"number_skills":1},{"id":"60","name":"Ativatec","type":"empresas","size":0.033333333333333,"total_mention":"2","number_skills":"1"},{"id":"394","name":"Visagio","type":"empresas","size":0.33333333333333,"total_mention":"5","number_skills":"2"},{"id":"359","name":"Tailor","type":"empresas","size":0.033333333333333,"total_mention":"6","number_skills":"1"},{"id":"267","name":"Netcommerce","type":"empresas","size":0.33333333333333,"total_mention":"7","number_skills":"2"},{"id":"237","name":"Main\u00f4","type":"empresas","size":0.33333333333333,"total_mention":"8","number_skills":"2"},{"id":"141","name":"Elo Group","type":"empresas","size":1,"total_mention":"51","number_skills":"4"},{"id":"32","name":"Acta","type":"empresas","size":0.33333333333333,"total_mention":"74","number_skills":"2"}];
+    var edgeList = [{"source":"32","target":"35","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"40","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"66","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"98","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"112","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"124","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"131","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"132","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"141","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"142","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"159","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"178","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"186","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"195","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"237","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"259","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"267","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"268","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"271","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"286","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"305","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"312","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"313","weight":0.33333333333333,"lineColor":"#333"},{"source":"32","target":"334","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"353","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"374","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"376","weight":0.33333333333333,"lineColor":"#333"},{"source":"32","target":"382","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"399","weight":0.033333333333333,"lineColor":"#333"},{"source":"32","target":"406","weight":0.033333333333333,"lineColor":"#333"},{"source":"60","target":"104","weight":0.033333333333333,"lineColor":"#333"},{"source":"60","target":"134","weight":0.033333333333333,"lineColor":"#333"},{"source":"60","target":"151","weight":0.033333333333333,"lineColor":"#333"},{"source":"60","target":"165","weight":0.033333333333333,"lineColor":"#333"},{"source":"60","target":"178","weight":0.033333333333333,"lineColor":"#333"},{"source":"60","target":"237","weight":0.033333333333333,"lineColor":"#333"},{"source":"60","target":"245","weight":0.033333333333333,"lineColor":"#333"},{"source":"60","target":"271","weight":0.033333333333333,"lineColor":"#333"},{"source":"60","target":"286","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"142","weight":1,"lineColor":"#333"},{"source":"141","target":"159","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"165","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"178","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"186","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"191","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"195","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"228","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"237","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"259","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"267","weight":0.33333333333333,"lineColor":"#333"},{"source":"141","target":"268","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"271","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"286","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"305","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"312","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"313","weight":0.33333333333333,"lineColor":"#333"},{"source":"141","target":"334","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"353","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"374","weight":0.33333333333333,"lineColor":"#333"},{"source":"141","target":"376","weight":0.33333333333333,"lineColor":"#333"},{"source":"141","target":"382","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"399","weight":0.033333333333333,"lineColor":"#333"},{"source":"141","target":"406","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"245","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"259","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"267","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"268","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"271","weight":0.33333333333333,"lineColor":"#333"},{"source":"237","target":"286","weight":0.33333333333333,"lineColor":"#333"},{"source":"237","target":"305","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"312","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"313","weight":0.33333333333333,"lineColor":"#333"},{"source":"237","target":"334","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"353","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"374","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"376","weight":0.33333333333333,"lineColor":"#333"},{"source":"237","target":"382","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"399","weight":0.033333333333333,"lineColor":"#333"},{"source":"237","target":"406","weight":0.033333333333333,"lineColor":"#333"},{"source":"267","target":"268","weight":0.033333333333333,"lineColor":"#333"},{"source":"267","target":"271","weight":0.033333333333333,"lineColor":"#333"},{"source":"267","target":"286","weight":0.033333333333333,"lineColor":"#333"},{"source":"267","target":"305","weight":0.033333333333333,"lineColor":"#333"},{"source":"267","target":"312","weight":0.033333333333333,"lineColor":"#333"},{"source":"267","target":"313","weight":0.33333333333333,"lineColor":"#333"},{"source":"267","target":"334","weight":0.033333333333333,"lineColor":"#333"},{"source":"267","target":"353","weight":0.033333333333333,"lineColor":"#333"},{"source":"267","target":"374","weight":0.33333333333333,"lineColor":"#333"},{"source":"267","target":"376","weight":0.33333333333333,"lineColor":"#333"},{"source":"267","target":"382","weight":0.033333333333333,"lineColor":"#333"},{"source":"267","target":"399","weight":0.033333333333333,"lineColor":"#333"},{"source":"267","target":"406","weight":0.033333333333333,"lineColor":"#333"},{"source":"310","target":"313","weight":0.033333333333333,"lineColor":"#333"},{"source":"310","target":"334","weight":0.033333333333333,"lineColor":"#333"},{"source":"310","target":"362","weight":0.033333333333333,"lineColor":"#333"},{"source":"310","target":"376","weight":0.033333333333333,"lineColor":"#333"}];
+    var classesList = [{"id":"1","name":"Planejamento"},{"id":"2","name":"Empreendedorismo"},{"id":"3","name":"Gest\u00e3o"},{"id":"4","name":"Consultoria"},{"id":"5","name":"Ferramentas de Escrit\u00f3rio"},{"id":"6","name":"Neg\u00f3cios"},{"id":"7","name":"Lideran\u00e7a"},{"id":"8","name":"Idiomas"},{"id":"9","name":"Inova\u00e7\u00e3o"},{"id":"10","name":"Educa\u00e7\u00e3o"},{"id":"11","name":"Economia Criativa"},{"id":"12","name":"Tecnologias Sociais"},{"id":"13","name":"Pesquisa"},{"id":"14","name":"Administra\u00e7\u00e3o"},{"id":"15","name":"Clientes"},{"id":"16","name":"Desenvolvimento"},{"id":"17","name":"Plataforma"},{"id":"18","name":"Projetos"},{"id":"19","name":"Marketing"},{"id":"20","name":"Comunica\u00e7\u00e3o"},{"id":"21","name":"Finan\u00e7as"},{"id":"22","name":"Auditoria"},{"id":"23","name":"Governan\u00e7a"},{"id":"24","name":"Cultura"},{"id":"25","name":"Banco de Dados"},{"id":"26","name":"Tecnologias Web"},{"id":"27","name":"Intelig\u00eancia Artificial"},{"id":"28","name":"Estat\u00edstica"},{"id":"29","name":"Modelagem"},{"id":"30","name":"Energia"},{"id":"31","name":"Economia"},{"id":"32","name":"Ferramentas de Desenvolvimento"},{"id":"33","name":"An\u00e1lise"},{"id":"34","name":"Risco"},{"id":"35","name":"Ferramentas de Engenharia"},{"id":"36","name":"Ferramentas de Estat\u00edstica"},{"id":"37","name":"Engenharia II"},{"id":"38","name":"Ci\u00eancias"},{"id":"39","name":"Qu\u00edmica"},{"id":"40","name":"Nanotecnologia"},{"id":"41","name":"Engenharia"},{"id":"42","name":"O&G"},{"id":"43","name":"Investimentos"},{"id":"44","name":"Negocia\u00e7\u00e3o"},{"id":"45","name":"Direito"},{"id":"46","name":"Farm\u00e1cia"},{"id":"47","name":"Laborat\u00f3rio"},{"id":"48","name":"Medicina"},{"id":"49","name":"Meio Ambiente"},{"id":"50","name":"Outros"},{"id":"51","name":"Qualidade"},{"id":"52","name":"Biotecnologia"},{"id":"53","name":"Ferramentas de Educa\u00e7\u00e3o"},{"id":"54","name":"Vendas"},{"id":"55","name":"Jogos"},{"id":"56","name":"Tecnologias M\u00f3veis"},{"id":"57","name":"Engenharia IV"},{"id":"58","name":"Engenharia I"},{"id":"59","name":"Engenharia III"},{"id":"60","name":"Geof\u00edsica"},{"id":"61","name":"Ferramentas de Gest\u00e3o"},{"id":"62","name":"F\u00edsica nuclear"},{"id":"63","name":"Artes"},{"id":"64","name":"Ferramentas de Audiovisual"},{"id":"65","name":"Interfaces"},{"id":"66","name":"Audiovisual"},{"id":"67","name":"Informa\u00e7\u00e3o"},{"id":"68","name":"Ci\u00eancia da Computa\u00e7\u00e3o"},{"id":"69","name":"Eletr\u00f4nica"},{"id":"70","name":"Produ\u00e7\u00e3o"},{"id":"71","name":"Telecom"},{"id":"72","name":"Arquitetura"},{"id":"73","name":"Aeron\u00e1utica"},{"id":"74","name":"Ferramentas Empresariais"},{"id":"75","name":"Gest\u00e3o de TI"},{"id":"76","name":"Seguran\u00e7a da Informa\u00e7\u00e3o"},{"id":"77","name":"Seguran\u00e7a"},{"id":"78","name":"Ci\u00eancias Sociais"},{"id":"79","name":"Psicologia"},{"id":"80","name":"Consumo"},{"id":"81","name":"Direitos Autorais"},{"id":"82","name":"Ferramentas de Geografia"},{"id":"83","name":"Ci\u00eancias Exatas e da Terra"},{"id":"84","name":"Moda"},{"id":"85","name":"M\u00eddias"},{"id":"86","name":"Servi\u00e7os"},{"id":"87","name":"Sociais"},{"id":"88","name":"F\u00edsica"},{"id":"89","name":"Pessoas"},{"id":"90","name":"Ci\u00eancias da Sa\u00fade"},{"id":"91","name":"Prototipa\u00e7\u00e3o"},{"id":"92","name":"Seguros"},{"id":"93","name":"Agroneg\u00f3cios"},{"id":"94","name":"Turismo"},{"id":"95","name":"Alimenta\u00e7\u00e3o"},{"id":"96","name":"TIC"},{"id":"97","name":"Monitoramento"},{"id":"98","name":"Tecnologia"},{"id":"99","name":"Lingu\u00edstica, Letras e Artes"},{"id":"100","name":"Matem\u00e1tica"}];
+
+
+
+    </script>
+    <script src="{% static 'old_coral/graph_education.js' %}"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous'></script>
+    <script src='http://157.230.5.17/coral/view/cytoscape.min.js'></script>
+    <script src="http://157.230.5.17/coral/view/effects/cytoscape-panzoom.js"></script>
+
+    <script src="http://157.230.5.17/coral/view/effects/numeric-1.2.6.js"></script>
+    <script src="http://157.230.5.17/coral/view/effects/layout-base.js"></script>
+    <script src="http://157.230.5.17/coral/view/effects/springy.js"></script>
+    
+    <script src="http://157.230.5.17/coral/view/effects/cose-base.js"></script>
+    <script src="http://157.230.5.17/coral/view/effects/cytoscape-fcose.js"></script>
+    <script src="http://157.230.5.17/coral/view/effects/cytoscape-cola.js"></script>
+
+
+    <script src="http://157.230.5.17/coral/view/scripts/autocomplete.js"></script>
+    <script type="text/javascript">
+        var loadSkills = function (vector){
+            var result = [];
+            for(i=0;i<vector.length;i++){
+                result.push(vector[i].name);
+            }
+            return result;
+        }
+        // autocomplete(document.getElementById("keySearch"), loadSkills(classesList));
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+{% endblock %}
