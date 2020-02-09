@@ -59,3 +59,13 @@ def graph_reputation(request, proj_id):
 def graph_reputation_filter(request, proj_id):
     current_user = request.user
     return render(request, "graph_reputation_filter.html", {"current_user": current_user})
+
+@login_required
+def ecosystem_graph(request):
+    current_user = request.user
+    return render(request, "ecosystem_graph.html", {"current_user": current_user})
+
+@login_required
+def details(request, proj_id, page):
+    current_user = request.user
+    return render(request, "details.html", {"current_user": current_user, "page": page})

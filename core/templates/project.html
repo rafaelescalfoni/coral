@@ -9,13 +9,33 @@
 	<link href="{% static '/template/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css' %}" rel="stylesheet" />
 {% endblock %}
 
+{% block menuitens %} 
+<li class="dropdown navbar-user">
+    <a href="/graph_specialist/3" class="dropdown-toggle">
+        <div>
+            <img src="{% static '/template/img/especialista.png' %}" alt="" style="display: block;margin-left: auto !important;margin-right: auto !important; float: none!important;"/> 
+            
+            <span class="hidden-xs menu-title-coral">Especialistas</span>
+        </div>
+    </a>
+</li>
+
+<li class="dropdown navbar-user">
+    <a href="/graph_reputation/3" class="dropdown-toggle">
+        <div>
+            <img src="{% static '/template/img/recomendacao.png' %}" alt="" style="display: block;margin-left: auto !important;margin-right: auto !important; float: none!important;"/> 
+            <span class="hidden-xs menu-title-coral">Reputação</span>
+        </div>
+    </a>
+</li>
+{% endblock %}
 
 {% block content %}
 <div id="content" class="content">
-    <ol class="breadcrumb pull-right">
+<!--     <ol class="breadcrumb pull-right">
         <a href="/graph_specialist/3" class="btn btn-primary btn-lg m-r-5">Especialistas</a>
         <a href="/graph_reputation/3" class="btn btn-primary btn-lg m-r-5">Reputação</a>
-    </ol>
+    </ol> -->
 
 	<h1 class="page-header">Projeto ecossistemas do Rio de Janeiro
 	<br>

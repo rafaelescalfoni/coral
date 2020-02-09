@@ -3,10 +3,12 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('home', views.home, name='home'),
+    path('home/', views.home, name='home'),
     path('project/<int:id>', views.project, name='project'),
     path('graph_specialist/<int:proj_id>', views.graph_specialist, name='graph_specialist'),
     path('graph_reputation/<int:proj_id>', views.graph_reputation, name='graph_reputation'),
+    path('ecosystem_graph/', views.ecosystem_graph, name='ecosystem_graph'),
+    path('details/<int:proj_id>/<str:page>', views.details, name='details'),
 
     # Rota ghost
     path('graph_reputation_filter/<int:proj_id>', views.graph_reputation_filter, name='graph_reputation_filter'),

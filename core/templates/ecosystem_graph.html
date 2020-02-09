@@ -1,0 +1,78 @@
+{% extends "_layouts/base.html" %}
+{% load static %}
+
+{% block title %}Reputação{% endblock %}
+
+{% block styles %} 
+    <link href="{% static 'old_coral/style.css' %}" rel='stylesheet' />
+{% endblock %}
+
+
+{% block content %}
+<div id="content" class="content">
+
+    <ol class="breadcrumb pull-right">
+        
+        <a href="/details/3/ecosystem" class="btn btn-primary btn-lg m-r-5">Detalhes</a>
+        
+        <div class="btn-group m-r-5 btn-lg">
+
+            <a href="javascript:;" class="btn btn-primary btn-lg" data-toggle="dropdown">Layout</a>
+            <a href="javascript:;" data-toggle="dropdown" class="btn btn-primary btn-lg dropdown-toggle">
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu pull-right">
+                <li><a href="javascript:;" id="layoutArbor">Padrão</a></li>
+                <li><a href="javascript:;" id="layoutRandom">Aleatório</a></li>
+            </ul>
+        </div>
+    </ol>
+
+    <h1 class="page-header">Ecossistema
+    <br>
+    <small>Detalhamento do ecossistema</small></h1>
+    
+    <!-- Grafo de especialistas -->
+    <div id="cy"></div>       
+</div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{% static '/template/js/apps.min.js' %}"></script>
+
+    <script src="{% static 'old_coral/mockup/ecosystem_data.js' %}"></script>
+    <script src="{% static 'old_coral/graph_ecosystem.js' %}"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous'></script>
+    <script src='http://157.230.5.17/coral/view/cytoscape.min.js'></script>
+    <script src="http://157.230.5.17/coral/view/effects/cytoscape-panzoom.js"></script>
+
+    <script src="http://157.230.5.17/coral/view/effects/numeric-1.2.6.js"></script>
+    <script src="http://157.230.5.17/coral/view/effects/layout-base.js"></script>
+    <script src="http://157.230.5.17/coral/view/effects/springy.js"></script>
+    
+    <script src="http://157.230.5.17/coral/view/effects/cose-base.js"></script>
+    <script src="http://157.230.5.17/coral/view/effects/cytoscape-fcose.js"></script>
+    <script src="http://157.230.5.17/coral/view/effects/cytoscape-cola.js"></script>
+
+
+    <script src="http://157.230.5.17/coral/view/scripts/autocomplete.js"></script>
+    <script type="text/javascript">
+        var loadSkills = function (vector){
+            var result = [];
+            for(i=0;i<vector.length;i++){
+                result.push(vector[i].name);
+            }
+            return result;
+        }
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+{% endblock %}
