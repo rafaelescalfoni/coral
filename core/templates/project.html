@@ -32,10 +32,6 @@
 
 {% block content %}
 <div id="content" class="content">
-<!--     <ol class="breadcrumb pull-right">
-        <a href="/graph_specialist/3" class="btn btn-primary btn-lg m-r-5">Especialistas</a>
-        <a href="/graph_reputation/3" class="btn btn-primary btn-lg m-r-5">Reputação</a>
-    </ol> -->
 
 	<h1 class="page-header">Projeto ecossistemas do Rio de Janeiro
 	<br>
@@ -55,29 +51,74 @@
                         <div class="form-group">
                             <label class="control-label col-md-4 col-sm-4" for="fullname">Nome do projeto:</label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="text" id="fullname" name="fullname" placeholder="Required" value="Projeto ecossistemas do Rio de Janeiro"/>
+                                <input class="form-control" type="text" id="fullname" name="fullname" value="Projeto ecossistemas do Rio de Janeiro"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-4 col-sm-4" for="description">Descrição:</label>
                             <div class="col-md-6 col-sm-6">
-                                <textarea class="form-control" rows="4" cols="50" name="description" data-parsley-type="email" placeholder="Descrição"/>Estudo de caso empregado no sistema da encubadora IETEC</textarea>
+                                <textarea class="form-control" rows="4" cols="50" name="description" data-parsley-type="email" placeholder="Descrição"/>Estudo de caso empregado no ecossistema empreendedor do Rio de Janeiro</textarea>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label class="control-label col-md-4 col-sm-4" for="website">Criação do projeto:</label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="text" id="fullname" name="fullname" placeholder="Required" value="20/11/2017"/>
+                                <input class="form-control" type="text" id="fullname" name="fullname" value="20/11/2017"/>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="website">Hubs e Keystones</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" type="text" id="hubs" name="hubs">
+                            </div>
+                        </div>                        
+
 
 
                         <div class="form-group">
-                            <label class="control-label col-md-4 col-sm-4" for="message">Protocolo:</label>
+                            <label class="control-label col-md-4 col-sm-4" for="description">Visão geral da comunidade:</label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="text" id="data-phone" value="?????" />
+                                <textarea class="form-control" rows="4" cols="50" name="description" data-parsley-type="email" placeholder="Descrição"/>Comunidade empreendedora desenvolvida aos do ecossistema empreendedor do Rio de Janeiro. A comunidade contém em geral Stakeholders, fornecedores, pessoas chave dentro de cada empresa e o gestor da incubadora que tangencia o funcionamento e recomendações em questão.</textarea>
+                            </div>
+                        </div>                        
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="description">Estabeleça uma estratégia de pesquisa</label>
+                            <div class="col-md-6 col-sm-6">
+                                <textarea class="form-control" rows="4" cols="50" name="description" data-parsley-type="email" placeholder="Descrição"/>A estretégia para esta pesquisa consiste em triangular dados das bases de dados Linkedin e Reinc para encontrar nós próximos e contruir a rede da IETEC.</textarea>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="website">Fonte de dados</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" type="text" id="hubs" name="hubs" value="Linkedin; Reinc;">
+                            </div>
+                        </div>                        
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="website">Rastreadores web</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" type="text" id="hubs" name="hubs" value="crawler_linkedin.py;">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="website">Prazo da coleta de dados</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" type="text" id="hubs" name="hubs" value="1 ano">
+                            </div>
+                        </div>                        
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="website">Descrever a avaliação da qualidade</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input class="form-control" type="text" id="hubs" name="hubs" value="Um nó tem qualidade para entrar na análise quando é diretamente ligado a algum agente do ecossistema">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label class="control-label col-md-4 col-sm-4"></label>
                             <div class="col-md-6 col-sm-6">
@@ -90,10 +131,7 @@
         </div>
     </div>
 </div>
-
-
 {% endblock %}
-
 
 {% block scripts %}
 	<script src="{% static '/template/plugins/DataTables/media/js/jquery.dataTables.js' %}"></script>
@@ -110,4 +148,3 @@
 		});
 	</script>
 {% endblock %}
-	

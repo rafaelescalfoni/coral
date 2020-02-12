@@ -1,26 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Coral - Index</title>
-	
-	{% load static %}
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+	<meta charset="utf-8" />
+	<title>Coral</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
 
+	{% load static %}
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link href="{% static '/template/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css' %}" rel="stylesheet" />
+	<link href="{% static '/template/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+	<link href="{% static '/template/plugins/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" />
+	
+	<link href="{% static '/template/css/animate.min.css' %}" rel="stylesheet" />
+	<link href="{% static '/template/css/style.min.css' %}" rel="stylesheet" />
+	<link href="{% static '/template/css/style-responsive.min.css' %}" rel="stylesheet" />
+	<link href="{% static '/template/css/theme/blue.css' %}" rel="stylesheet" id="theme" />
+	<style type="text/css">
+		.menu-title-coral {
+			color: #120A8F;
+			font-weight: bold;
+		}
+
+		.logo-sidebar {
+			margin-top: 18px;
+		}
+	</style>
+
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="{% static '/template/plugins/pace/pace.min.js' %}"></script>
+	<!-- ================== END BASE JS ================== -->
 </head>
 <body>
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
 	
+	<!-- begin #page-container -->
+	<div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar navbar-default navbar-fixed-top" style="min-height: 80px!important;">
+			<!-- begin container-fluid -->
+			<div class="container-fluid">
+				<!-- begin mobile sidebar expand / collapse button -->
+				<div class="navbar-header">
+					<a href="/home">
+						<img src="{% static 'images/logo-horizontal.png' %}" class="logo-sidebar">
+					</a>
+				</div>
+				<!-- end mobile sidebar expand / collapse button -->
+				
+				<!-- begin header navigation right -->
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<p style="margin: 25px 15px;">
+							<a href="/login" style="border-radius: 100px; color: #FFF; width: 100px;" class="btn m-r-5 btn-primary">Entrar</a>
+						</p>
+					</li>
+				</ul>
+				<!-- end header navigation right -->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end #header -->
+	
+		
+		<!-- begin #content -->
+		<div>
+
+			
+			<div class="row">
+			    <div class="col-md-12">
+                    <img src="{% static '/images/bg.jpg'%}" style="width: 100%;">
+			    </div>
+			</div>
+		</div>
+		<!-- end #content -->
+		
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="{% static '/template/plugins/jquery/jquery-1.9.1.min.js' %}"></script>
+	<script src="{% static '/template/plugins/jquery/jquery-migrate-1.1.0.min.js' %}"></script>
+	<script src="{% static '/template/plugins/jquery-ui/ui/minified/jquery-ui.min.js' %}"></script>
+	<script src="{% static '/template/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static '/template/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+	<script src="{% static '/template/plugins/jquery-cookie/jquery.cookie.js' %}"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{% static '/template/js/apps.min.js' %}"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	
+	<script>
+		$(document).ready(function() {
+			App.init();
+		});
+	</script>
 </body>
 </html>
-
-	Aqui será a index do coral! 
-<br>
-	Urls ativas (index, home, login, logout):
-<br>
-<br>
-<br>
-<br>
-<a href="/login">Fazer login</a>
