@@ -2,6 +2,8 @@
 
 ![Logo Coral](https://github.com/rafaelescalfoni/coral/blob/master/core/static/images/logo.png)
 
+Coral é um framework para o mapeamento de comunidades empreendedoras. Nesta versão, mapeamos a comunidade empreendedora do estado do Rio de Janeiro no âmbito de empresas de tecnologia e respectivo ecossistema.
+
 ## Stack:
 
 - Django framework
