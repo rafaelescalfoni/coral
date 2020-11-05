@@ -1,0 +1,10 @@
+- CRUD de projeto
+- Puxar os dados do ecossistema do banco de dados para construir o grafo na página do ecossistema
+    - Puxar do banco de dados os detalhes do ecossistema
+
+
+- Puxar dados de especialistas e de reputações do banco de dados
+- Detalhes da reputação: mostrar os dados detalhados de cada um (modal de dados)
+- Detalhes dos especialistas: mostrar os dados detalhados de cada um (modal de dados)
+- Tirar a tela de projeto (que até agora não entendi o sentido daquela porra)
+

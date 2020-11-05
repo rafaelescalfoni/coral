@@ -12,7 +12,6 @@
 
 	{% load static %}
 
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>	
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="{% static '/template/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css' %}" rel="stylesheet" />
@@ -32,29 +31,18 @@
 			margin-top: 18px;
 		}
 	</style>
-	<!-- ================== END BASE CSS STYLE ================== -->
-	
 
-	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
 	{% block styles %}{% endblock %}
-	<!-- ================== END PAGE LEVEL STYLE ================== -->
 
 	
-	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="{% static '/template/plugins/pace/pace.min.js' %}"></script>
-	<!-- ================== END BASE JS ================== -->
 </head>
 <body>
-	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
-	<!-- end #page-loader -->
 	
 	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
-	<!-- begin #header -->
-	<div id="header" class="header navbar navbar-default navbar-fixed-top" style="min-height: 80px!important;">
-		<!-- begin container-fluid -->
+		<div id="header" class="header navbar navbar-default navbar-fixed-top" style="min-height: 80px!important;">
 		<div class="container-fluid">
-			<!-- begin mobile sidebar expand / collapse button -->
 			<div class="navbar-header">
 				<a href="/home">
 					<img src="{% static 'images/logo-horizontal.png' %}" class="logo-sidebar">
@@ -65,16 +53,12 @@
 					<span class="icon-bar"></span>
 				</button>
 			</div>
-			<!-- end mobile sidebar expand / collapse button -->
 			
-			<!-- begin header navigation right -->
 			<ul class="nav navbar-nav navbar-right">
-
 				<li class="dropdown navbar-user">
 					<a href="/home" class="dropdown-toggle">
 						<div>
 							<img src="{% static '/template/img/projetos.png' %}" alt="" style="display: block;margin-left: auto !important;margin-right: auto !important; float: none!important;"/> 
-							
 							<span class="hidden-xs menu-title-coral">Projetos</span>
 						</div>
 					</a>
@@ -100,29 +84,20 @@
 					</a>
 					<ul class="dropdown-menu animated fadeInLeft">
 						<li class="arrow"></li>
-						<li><a href="javascript:alert('Em desenvolvimento');">Editar perfil</a></li>
-						<li class="divider"></li>
 						<li><a href="/logout">Sair</a></li>
 					</ul>
 				</li>
 			</ul>
-			<!-- end header navigation right -->
 		</div>
-		<!-- end container-fluid -->
-	</div>
+		</div>
 
 		
 
-		<!-- ================== CONTENT ================== -->
 		{% block content %}{% endblock %}
-		<!-- ================== END CONTENT ============== -->
 
-		<!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
-		<!-- end scroll to top btn -->
 	</div>
 
-	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="{% static '/template/plugins/jquery/jquery-1.9.1.min.js' %}"></script>
 	<script src="{% static '/template/plugins/jquery/jquery-migrate-1.1.0.min.js' %}"></script>
 	<script src="{% static '/template/plugins/jquery-ui/ui/minified/jquery-ui.min.js' %}"></script>
@@ -134,10 +109,7 @@
 	<![endif]-->
 	<script src="{% static '/template/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
 	<script src="{% static '/template/plugins/jquery-cookie/jquery.cookie.js' %}"></script>
-	<!-- ================== END BASE JS ================== -->
-	
-	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+
 	{% block scripts %}{% endblock %}
-	<!-- ================== END PAGE LEVEL JS ================== -->
 </body>
 </html>

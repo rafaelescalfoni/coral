@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'coral.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'coral',
+        'NAME': 'recomendacao',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'll159753',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
